@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, CCInteger, CCString, Component, Label, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -23,9 +23,17 @@ export class Game extends Component {
     // @property
     // serializableDummy = 0;
 
+    job: string = '法师';
+    @property({type: CCInteger})
+    hp: number = 10;
+
+    @property({type: Label})
+    lable: Label = null; // 绑定lable节点
+
     start () {
-        // [3]
-        console.log('hello world');
+        // console.log(this.job)
+        // console.log(this.hp)
+        this.lable.string = 'Game Start'; // 修改label内容
     }
 
     // update (deltaTime: number) {
